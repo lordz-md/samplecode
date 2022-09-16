@@ -1,0 +1,8 @@
+#!/bin/bash
+yum update -y
+yum install -y httpd
+amazon-linux-extras install -y
+amazon-linux-extras enable php7.4
+yum install php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
+systemctl start httpd.service
+systemctl enable httpd.service
