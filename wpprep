@@ -1,6 +1,6 @@
 #!/bin/bash
 yum update -y
-yum install -y httpd
+yum install -y httpd mysql
 yum install amazon-linux-extras -y
 amazon-linux-extras enable php7.4
 yum install -y php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
