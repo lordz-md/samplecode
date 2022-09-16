@@ -22,7 +22,7 @@ cp ./wp-config-sample.php ./wp-config.php
 sed -i "s/'database_name_here'/'$DBName'/g" wp-config.php
 sed -i "s/'username_here'/'$DBUser'/g" wp-config.php
 sed -i "s/'password_here'/'$DBPassword'/g" wp-config.php
-sed -i "s/'localhost'/'$DBHost'/g" wp-config.conf
+sed -i "s/'localhost'/'$DBHost'/g" wp-config.php
 cat >> /home/ec2-user/update_wp_ip.sh<< 'EOF'
 #!/bin/bash
 source <(php -r 'require("/var/www/html/wp-config.php"); echo("DB_NAME=".DB_NAME."; DB_USER=".DB_USER."; DB_PASSWORD=".DB_PASSWORD."; DB_HOST=".DB_HOST); ')
