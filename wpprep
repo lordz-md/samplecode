@@ -3,7 +3,7 @@ yum update -y
 yum install -y httpd
 yum install amazon-linux-extras -y
 amazon-linux-extras enable php7.4
-yum install php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
+yum install -y php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
 wget http://wordpress.org/latest.tar.gz -P /var/www/html
 cd /var/www/html
 sudo tar -zxvf latest.tar.gz
