@@ -1,7 +1,7 @@
 #!/bin/bash
 yum update -y
 yum install -y httpd
-amazon-linux-extras install -y
+yum install amazon-linux-extras -y
 amazon-linux-extras enable php7.4
 yum install php php-{pear,cgi,common,curl,mbstring,gd,mysqlnd,gettext,bcmath,json,xml,fpm,intl,zip,imap}
 wget http://wordpress.org/latest.tar.gz -P /var/www/html
@@ -16,7 +16,7 @@ DBUser=$(aws ssm get-parameters --region eu-central-1 --names /wordpress/dbuser 
 DBUser=`echo $DBUser | sed -e 's/^"//' -e 's/"$//'`
 DBName=$(aws ssm get-parameters --region eu-central-1 --names /wordpress/dbname --query Parameters[0].Value)
 DBName=`echo $DBName | sed -e 's/^"//' -e 's/"$//'`
-DBHost=$(aws ssm get-parameters --region us-east-1 --names /wordpress/dbhost --query Parameters[0].Value)
+DBHost=$(aws ssm get-parameters --region eu-central-1 --names /wordpress/dbhost --query Parameters[0].Value)
 DBHost=`echo $DBHost | sed -e 's/^"//' -e 's/"$//'`
 cp ./wp-config-sample.php ./wp-config.php
 sed -i "s/'database_name_here'/'$DBName'/g" wp-config.php
